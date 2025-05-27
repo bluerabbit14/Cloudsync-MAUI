@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CloudSync.Pages.FlyoutDemoPage"
+             Title="Flyout Demo">
+    <FlyoutPage.Flyout>
+        <ContentPage Background="blue">
+            <VerticalStackLayout>
+                <Label Text="this is flyoutpage.flyout"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   FontSize="25"
+                   HorizontalTextAlignment="Center"
+                   Margin="20"/>
+            </VerticalStackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Background="red">
+                    <VerticalStackLayout>
+                        <Label Text="this is flyoutpage.flyout"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           Margin="20"/>
+                    </VerticalStackLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

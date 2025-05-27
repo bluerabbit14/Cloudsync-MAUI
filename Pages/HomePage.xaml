@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="CloudSync.Pages.HomePage"
+             Title="Home">
+
+    <ScrollView>
+        <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Start" Margin="10" Padding="0">
+
+            <!-- Welcome Text -->
+            <Label Text="Welcome Back Master!" FontSize="25" HorizontalTextAlignment="Center"/>
+            <Label x:Name="UserId" FontSize="25" HorizontalTextAlignment="Center"></Label>
+
+            <!-- Profile Image -->
+            <Frame Padding="10" CornerRadius="100" Margin="5">
+                <Image Source="profile.png"  WidthRequest="130" HeightRequest="130" Opacity="0.3"/>
+            </Frame>
+
+            <!-- Features Section -->
+            <CollectionView x:Name="CollectionView" ItemsLayout="VerticalGrid, 2" SelectionMode="Multiple" >
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+                        <Frame Margin="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".2*"/>
+                                    <ColumnDefinition Width=".8*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Horizontal" Spacing="3">
+                                    <Image Grid.Column="0" Grid.Row="0"  Source="{Binding Image}" WidthRequest="30"/>
+                                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding Title}" FontSize="25"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Log Out Button -->
+            <Button Text="Log Out" BackgroundColor="#FF5c5c" FontSize="20" WidthRequest="180" Clicked="Button_Clicked" Margin="10"/>
+
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

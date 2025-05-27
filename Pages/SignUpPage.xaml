@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+           x:Class="CloudSync.Pages.SignUpPage"  
+           Title="SignUp">  
+  <VerticalStackLayout>  
+      <!-- App welcome label-->
+        <Label Text="Hello New User!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="40"/>
+        <Border  
+             StrokeThickness="0"  
+             WidthRequest="160"  
+             HeightRequest="160"  
+             BackgroundColor="Transparent"  
+             StrokeShape="RoundRectangle 80"
+             Margin="15">  
+           <Image Source="puppy.png" Aspect="AspectFill"/>  
+       </Border>  
+      <!-- Credential Input field-->  
+      <StackLayout Orientation="Vertical" Spacing="10" WidthRequest="320">
+            <Border Stroke="Black" MinimumHeightRequest="50" StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <HorizontalStackLayout Padding="5">
+                    <Image Source="profile.png"  WidthRequest="30"/>
+                    <Entry x:Name="NameEntry" Placeholder="Name" Keyboard="Text" TextColor="Black" PlaceholderColor="Grey" ClearButtonVisibility="WhileEditing" FontSize="15"  WidthRequest="270"></Entry>
+                </HorizontalStackLayout>
+
+            </Border>
+            <Border Stroke="Black" MinimumHeightRequest="50" StrokeThickness="1">  
+              <Border.StrokeShape>  
+                  <RoundRectangle CornerRadius="10"/>  
+              </Border.StrokeShape>
+                <HorizontalStackLayout Padding="5">
+                    <Image Source="mail.png" WidthRequest="30" />
+                    <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" TextColor="Black" PlaceholderColor="Grey" ClearButtonVisibility="WhileEditing" WidthRequest="270" FontSize="15"></Entry>
+                </HorizontalStackLayout>
+            </Border>  
+          <Border Stroke="Black" MinimumHeightRequest="50"  StrokeThickness="1">  
+              <Border.StrokeShape>  
+                  <RoundRectangle CornerRadius="10"/>  
+              </Border.StrokeShape>
+                <HorizontalStackLayout Padding="5">
+                    <Image Source="lock.png" WidthRequest="30" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" TextColor="Black" PlaceholderColor="Grey" ClearButtonVisibility="WhileEditing" WidthRequest="270" FontSize="15"></Entry>
+                </HorizontalStackLayout>
+            </Border>
+            <Border Stroke="Black" MinimumHeightRequest="50"  StrokeThickness="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10"/>
+                </Border.StrokeShape>
+                <HorizontalStackLayout Padding="5">
+                    <Image Source="password.png" WidthRequest="30"/>
+                    <Entry x:Name="ReWrite_PasswordEntry" Placeholder="Re-write Password" IsPassword="True" TextColor="Black" PlaceholderColor="Grey" ClearButtonVisibility="WhileEditing" WidthRequest="270"
+                           FontSize="15"></Entry>
+                </HorizontalStackLayout>
+            </Border>
+            <Button WidthRequest="160" Text="Sign up" Clicked="Button_Clicked"/>
+            <Label Text="Back to Login!" TextColor="Blue" HorizontalOptions="Center" TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>  
+  </VerticalStackLayout>  
+</ContentPage>

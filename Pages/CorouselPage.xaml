@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CloudSync.Pages.CorouselPage"
+             Title="Corousel">
+    <VerticalStackLayout Padding="10">
+        <CarouselView x:Name="demoCarousel" IndicatorView="demoIndicator">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout BackgroundColor="#E4EEF4" >
+                        <Label FontSize="20" HorizontalTextAlignment="Center" Text="{Binding Title}" TextColor="Black"></Label>
+                        <Label FontSize="15" HorizontalTextAlignment="Center" Text="{Binding Description}" TextColor="Black"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="demoIndicator" Margin="10" HorizontalOptions="Center" SelectedIndicatorColor="red" IndicatorColor="Green"/>
+    </VerticalStackLayout>
+</ContentPage>

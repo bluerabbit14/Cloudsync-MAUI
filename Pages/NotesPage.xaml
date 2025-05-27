@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"           
+             xmlns:vm="clr-namespace:CloudSync.Models.ViewModels"
+             xmlns:models="clr-namespace:CloudSync.Models"
+             x:DataType="vm:NoteViewModel"
+             x:Class="CloudSync.Pages.NotesPage"
+             Title="Notes">
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <!--Input Area  -->
+        <Frame>
+            <VerticalStackLayout Spacing="5">
+                <HorizontalStackLayout>
+                    <Entry x:Name="TitleEntry" Placeholder="Title..." WidthRequest="250" FontSize="20" Text="{Binding Note.Title}"/>
+                    <DatePicker x:Name="DateEntry"  Format="dd MMM yyyy" Date="{Binding Note.CreatedAt}" MinimumDate="2000-01-01" MaximumDate="2100-12-31" TextColor="Black" FontSize="15" HorizontalOptions="Start" />
+                </HorizontalStackLayout>
+                <Editor x:Name="ContentEntry" Placeholder="Content.." Text="{Binding Note.Content}" FontSize="20" AutoSize="TextChanges"  MinimumHeightRequest="20" MaximumHeightRequest="140" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button  Grid.Column="1" WidthRequest="150" Text="ADD+"  FontAttributes="Bold"  FontSize="20" Command="{Binding AddCommand}"/>
+                    <Button Grid.Column="2" Text="CLEAR" FontSize="20" WidthRequest="90" FontAttributes="Bold" Clicked="ClearButton_Clicked" BackgroundColor="red"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <!-- Display Area-->
+        <VerticalStackLayout>
+            <Label Text="Note" FontSize="30" TextColor="white" BackgroundColor="#51F" HorizontalTextAlignment="Center"/>
+            <CollectionView ItemsSource="{Binding Notes}" ItemsLayout="VerticalList" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type models:Note}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding NoteIcon}" WidthRequest="30"/>
+                            <VerticalStackLayout Grid.Column="1" Padding="3">
+                                <Label Text="{Binding Title}" FontSize="20" TextTransform="Uppercase" FontAttributes="Bold"/>
+                                <Label Text="{Binding Content}" MaxLines="2" FontSize="15" FontAttributes="Italic" LineBreakMode="TailTruncation"/>
+                            </VerticalStackLayout>
+                            <Image Grid.Column="2" Source="{Binding DeleteIcon}" WidthRequest="30">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DeleteGestureRecognizer_Tapped" CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

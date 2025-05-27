@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CloudSync.Pages.NoteDetailPage"
+             xmlns:vm="clr-namespace:CloudSync.Models.ViewModels"
+             x:DataType="vm:NoteDetailViewModel"
+             Title="Note Detail">
+    <VerticalStackLayout>
+        <Frame>
+            <VerticalStackLayout Spacing="10">
+                <HorizontalStackLayout>
+                    <Entry x:Name="TitleEntry2" Placeholder="Title..." WidthRequest="250" FontSize="20" Text="{Binding Note.Title}" IsReadOnly="True"/>
+                    <DatePicker x:Name="DateEntry2" Format="dd MMM yyyy" MinimumDate="2000-01-01" MaximumDate="2100-12-31" TextColor="Black" FontSize="15" IsEnabled="False" HorizontalOptions="Start"/>
+                </HorizontalStackLayout>
+                <Editor x:Name="ContentEntry2" Placeholder="Content.." FontSize="20" Text="" AutoSize="TextChanges"  MinimumHeightRequest="20" IsReadOnly="True" MaximumHeightRequest="180"/>
+                <Grid ColumnSpacing="10" WidthRequest="350">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="EditButton" Text="Edit" BackgroundColor="Green" FontAttributes="Bold" FontSize="20" IsEnabled="True" Clicked="EditButton_Clicked"/>
+                    <Button  Grid.Column="1" Text="Save"  FontAttributes="Bold"  FontSize="20" BackgroundColor="red" Clicked="SaveButton_Clicked"></Button>
+                    <Button x:Name="ClearButton" Grid.Column="2" Text="CLEAR" FontSize="20" FontAttributes="Bold" BackgroundColor="DeepSkyBlue" Clicked="ClearButton_Clicked" IsEnabled="False"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

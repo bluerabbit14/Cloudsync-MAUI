@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+            x:Class="CloudSync.Pages.DashboardPage"  
+            Title="Dashboard"
+            SelectedTabColor="red"
+            UnselectedTabColor="Blue"
+            >  
+   <!--  1st Slide-->  
+   <ContentPage Title="Home" IconImageSource="password.png">
+        <Label Text="This is Home Page"
+               FontSize="25"
+               Margin="20"
+               FontAttributes="Bold"/>
+    </ContentPage>  
+   <!--  2nd Slide-->  
+   <ContentPage Title="Profile" IconImageSource="profile.png">  
+       <Label Text="This is Profile Page"
+              FontSize="25"
+              Margin="20"
+              FontAttributes="Bold"/>  
+   </ContentPage>  
+   <!--  3rd Slide-->  
+   <ContentPage Title="Setting" IconImageSource="setting.png">  
+       <Label Text="This is Setting Page"
+              FontSize="25"
+              Margin="20"
+              FontAttributes="Bold"/>  
+   </ContentPage>  
+</TabbedPage>
